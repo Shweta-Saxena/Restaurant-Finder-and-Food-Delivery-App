@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">Welcome</a>
+  <a class= 'btn btn-danger' href="/loginuser/" >Log in</a>
+</nav>
+{% for message in messages %}
+    <p style="text-align:center"> {{ message }}</p>
+{% endfor %}
+<div class="container-fluid" style="position:relative;margin:auto;height:600px;background-size:cover;background-image: url({% static 'img/pizza3.jpg' %})">
+    <div class="container" style="position:absolute;top:50px;right:20px;padding:40px;width:350px;background-color:chocolate;height:350px">
+        <h1 style="color:white;text-align:center">Sign up! </h1>
+        <form method="post" action="/signupuser/">
+            {% csrf_token %}
+
+            <input style="margin-top: 10px;" class="form-control" placeholder="username" type="text" name="username">
+            <input style="margin-top: 30px;" class="form-control" placeholder="password" type="password" name="password">
+            <input style="margin-top: 30px;" class="form-control" placeholder="phoneno" type="text" name="phoneno">
+            <input style="display:block;margin:auto;margin-top: 30px;" type="submit" class="btn btn-primary" name="">
+        </form>    
+    </div>
+
+</div>
+
+{% endblock%}

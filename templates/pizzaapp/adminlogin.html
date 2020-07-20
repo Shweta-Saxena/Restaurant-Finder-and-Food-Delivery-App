@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method='post' action='/adminauthenticate/'>
+    {% csrf_token %}
+	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img class="d-block w-100" src="https://image.freepik.com/free-photo/view-frame-with-pizza-black-background_23-2148308883.jpg" alt="First slide">    {% comment %} <div class="carousel-item"> {% endcomment %}
+					<div class="carousel-caption">
+						<div style="padding:25px;width:35%;display:block;float:right;margin:auto;margin-top:-500px;position:relative">
+							<h2 style="color:grey;text-align:center"><u>Admin login</u></h2>
+							<input type="text" style="margin:20px 5px" class='form-control' placeholder="username" name="username">
+							<input type="password" style="margin:10px 5px" class='form-control' placeholder="password" name="password">
+							<input type="submit" style='margin:10px 90px;' class='btn btn-success' name="">
+							
+							{% for message in messages%}
+								<p style="text-align:center;color:red">{{message}}</p>
+							{% endfor %} 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+{% endblock %}
+    
+   
